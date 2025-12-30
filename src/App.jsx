@@ -10,7 +10,7 @@ function App() {
     <div className="app">
       <div className="app-container glass-card">
         <header className="app-header">
-          <h1>Pomodoro Timer</h1>
+          <h1>Tomatic</h1>
           <div className="phase-indicator" style={{ '--phase-color': timer.currentPhase.color }}>
             {timer.currentPhase.name}
           </div>
