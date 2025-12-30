@@ -1,0 +1,57 @@
+.controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.control-btn:active {
+    transform: scale(0.95);
+}
+
+.control-btn-primary {
+    width: 80px;
+    height: 80px;
+    background: var(--btn-color, var(--accent-focus));
+    border-color: var(--btn-color, var(--accent-focus));
+    box-shadow: 0 0 30px rgba(255, 107, 107, 0.4);
+    transition: all var(--transition-normal);
+}
+
+.control-btn-primary:hover {
+    background: var(--btn-color, var(--accent-focus));
+    filter: brightness(1.1);
+    box-shadow: 0 0 40px rgba(255, 107, 107, 0.6);
+}
+
+.control-btn-secondary {
+    width: 56px;
+    height: 56px;
+}
+
+.control-btn-secondary:hover {
+    color: var(--accent-focus);
+}
+
+/* Focus styles for accessibility */
+.control-btn:focus-visible {
+    outline: 2px solid var(--accent-focus);
+    outline-offset: 2px;
+}
