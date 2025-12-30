@@ -6,17 +6,18 @@
 }
 
 .timer-ring {
-    filter: drop-shadow(0 0 30px var(--timer-color, rgba(255, 60, 172, 0.5)));
-    transition: filter var(--transition-slow);
+    filter: drop-shadow(3px 3px 0 rgba(0, 0, 0, 0.2));
+    transition: filter var(--transition-normal);
 }
 
 .timer-ring-bg {
-    stroke: rgba(255, 255, 255, 0.05);
+    stroke: var(--bg-paper);
+    stroke-width: 10;
 }
 
 .timer-ring-progress {
     transition: stroke-dashoffset 0.3s ease-out, stroke var(--transition-normal);
-    filter: drop-shadow(0 0 8px currentColor);
+    stroke-linecap: round;
 }
 
 .timer-content {
@@ -28,66 +29,74 @@
 }
 
 .timer-time {
-    font-size: 4.5rem;
-    font-weight: 800;
-    font-variant-numeric: tabular-nums;
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 400;
     letter-spacing: 0.02em;
-    color: var(--text-primary);
+    color: var(--text-ink);
     transition: all var(--transition-normal);
-    text-shadow:
-        0 0 20px rgba(255, 255, 255, 0.3),
-        0 0 40px var(--timer-color, rgba(255, 60, 172, 0.3));
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
 .timer-time.is-running {
-    text-shadow:
-        0 0 30px rgba(255, 255, 255, 0.5),
-        0 0 60px var(--timer-color, rgba(255, 60, 172, 0.6)),
-        0 0 100px var(--timer-color, rgba(255, 60, 172, 0.4));
-    animation: neonPulse 1.5s ease-in-out infinite;
+    animation: wiggle 0.5s ease-in-out infinite;
 }
 
-@keyframes neonPulse {
+@keyframes wiggle {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-1deg);
+    }
+
+    75% {
+        transform: rotate(1deg);
+    }
+}
+
+/* Decorative doodles around timer */
+.timer-display::before {
+    content: '★';
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    color: var(--peanuts-yellow);
+    animation: twinkle 2s ease-in-out infinite;
+}
+
+.timer-display::after {
+    content: '♥';
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+    font-size: 18px;
+    color: var(--peanuts-red);
+    animation: twinkle 2s ease-in-out infinite 0.5s;
+}
+
+@keyframes twinkle {
 
     0%,
     100% {
         opacity: 1;
         transform: scale(1);
-        filter: brightness(1);
     }
 
     50% {
-        opacity: 0.95;
-        transform: scale(1.02);
-        filter: brightness(1.1);
-    }
-}
-
-/* Circular glow behind timer */
-.timer-display::before {
-    content: '';
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: radial-gradient(circle,
-            var(--timer-color, rgba(255, 60, 172, 0.2)) 0%,
-            transparent 70%);
-    filter: blur(40px);
-    z-index: -1;
-    animation: breathe 4s ease-in-out infinite;
-}
-
-@keyframes breathe {
-
-    0%,
-    100% {
-        transform: scale(1);
         opacity: 0.6;
+        transform: scale(0.9);
     }
+}
 
-    50% {
-        transform: scale(1.2);
-        opacity: 0.8;
-    }
+/* Circle background resembling comic panel */
+.timer-display>svg {
+    background: var(--bg-paper);
+    border: 3px solid var(--text-ink);
+    border-radius: 50%;
+    box-shadow: 4px 4px 0 var(--text-ink);
 }

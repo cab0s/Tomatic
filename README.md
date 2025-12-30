@@ -1,16 +1,90 @@
-# React + Vite
+# 🥜 Tomatic
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> ピーナッツ（スヌーピー）風デザインのポモドーロタイマー
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
+![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ 特徴
 
-## React Compiler
+- 🎨 **ピーナッツ風デザイン** - クラシックなコミックストリップの雰囲気
+- ⏱️ **ポモドーロタイマー** - 25分集中 + 休憩のサイクル
+- 📱 **レスポンシブ** - モバイル対応
+- 🔔 **通知音** - フェーズ完了時にお知らせ
+- 🚀 **GitHub Pages** - すぐに使える
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🖼️ スクリーンショット
 
-## Expanding the ESLint configuration
+*クリーム色の背景、手描きフォント、コミックパネル風のデザイン*
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 デモ
+
+**[▶ Tomaticを試す](https://cab0s.github.io/Tomatic/)**
+
+## 📦 インストール
+
+```bash
+# リポジトリをクローン
+git clone https://github.com/cab0s/Tomatic.git
+cd Tomatic
+
+# 依存関係をインストール
+npm install
+
+# 開発サーバーを起動
+npm run dev
+```
+
+## 🛠️ 使い方
+
+1. **開始** - 中央の ▶ ボタンをクリック
+2. **一時停止** - 同じボタンで ⏸ に切り替え
+3. **リセット** - 左のボタンで時間をリセット
+4. **スキップ** - 右のボタンで次のフェーズへ
+
+## ⏰ フェーズ
+
+| フェーズ | 時間 | 説明 |
+|---------|------|------|
+| 🔴 集中 | 25分 | 作業に集中 |
+| 🔵 短い休憩 | 5分 | 短い休息 |
+| 🟢 長い休憩 | 15分 | 4ポモドーロ後 |
+
+## 📁 プロジェクト構造
+
+```
+Tomatic/
+├── src/
+│   ├── components/     # UIコンポーネント
+│   ├── hooks/          # カスタムフック
+│   ├── App.jsx         # メインアプリ
+│   └── index.css       # グローバルスタイル
+├── docs/               # 設計資料
+└── .github/workflows/  # CI/CD
+```
+
+## 📚 ドキュメント
+
+詳細な設計資料は [docs/](./docs/) フォルダにあります：
+
+- [技術仕様](./docs/ARCHITECTURE.md)
+- [コンポーネント設計](./docs/COMPONENTS.md)
+- [デザインシステム](./docs/DESIGN_SYSTEM.md)
+- [機能仕様](./docs/FEATURES.md)
+- [API リファレンス](./docs/API.md)
+
+## 🔧 技術スタック
+
+- **React 19** - UIライブラリ
+- **Vite 7** - ビルドツール
+- **CSS3** - カスタムプロパティ & アニメーション
+- **GitHub Actions** - 自動デプロイ
+
+## 📄 ライセンス
+
+MIT License
+
+---
+
+*Good grief!* 🐕
