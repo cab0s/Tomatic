@@ -2,7 +2,7 @@
 
 ## デザインコンセプト
 
-**ピーナッツ（スヌーピー）風デザイン**
+**レトロコミック風デザイン**
 - クラシックなコミックストリップの温かみ
 - 手描き感のあるアナログな雰囲気
 - シンプルで親しみやすいデザイン
@@ -24,7 +24,7 @@
 | Ink | `#2c2c2c` | メインテキスト・枠線 |
 | Pencil | `#4a4a4a` | サブテキスト |
 
-### ピーナッツカラー
+### アクセントカラー
 | 名前 | コード | 用途 |
 |------|--------|------|
 | Red | `#e74c3c` | 集中フェーズ |
@@ -118,7 +118,7 @@
 | wiggle | 左右に揺れる | タイマー実行中 |
 | bounce | バウンス | 音符マーク |
 | twinkle | きらめき | 星・ハート装飾 |
-| happyDance | スヌーピー風ダンス | ボタンホバー |
+| happyDance | 楽しいダンス | ボタンホバー |
 
 ---
 
@@ -129,7 +129,7 @@
 .control-btn-primary {
   width: 80px;
   height: 80px;
-  background: var(--peanuts-red);
+  background: #e74c3c;
   border: 3px solid #2c2c2c;
   border-radius: 50%;
   box-shadow: 4px 4px 0 #2c2c2c;
@@ -142,7 +142,7 @@
 .control-btn-secondary {
   width: 56px;
   height: 56px;
-  background: var(--peanuts-yellow);
+  background: #f1c40f;
   border: 3px solid #2c2c2c;
   border-radius: 50%;
   box-shadow: 4px 4px 0 #2c2c2c;

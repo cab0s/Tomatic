@@ -65,7 +65,7 @@
     top: 10px;
     right: 20px;
     font-size: 24px;
-    color: var(--peanuts-yellow);
+    color: var(--comic-yellow);
     animation: twinkle 2s ease-in-out infinite;
 }
 
@@ -75,7 +75,7 @@
     bottom: 20px;
     left: 15px;
     font-size: 18px;
-    color: var(--peanuts-red);
+    color: var(--comic-red);
     animation: twinkle 2s ease-in-out infinite 0.5s;
 }
 

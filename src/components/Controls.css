@@ -29,24 +29,24 @@
 .control-btn-primary {
     width: 80px;
     height: 80px;
-    background: var(--btn-color, var(--peanuts-red));
+    background: var(--btn-color, var(--comic-red));
     color: white;
     font-size: 32px;
 }
 
 .control-btn-primary:hover {
-    background: var(--btn-color, var(--peanuts-red));
+    background: var(--btn-color, var(--comic-red));
     filter: brightness(1.1);
 }
 
 .control-btn-secondary {
     width: 56px;
     height: 56px;
-    background: var(--peanuts-yellow);
+    background: var(--comic-yellow);
 }
 
 .control-btn-secondary:hover {
-    background: var(--peanuts-orange);
+    background: var(--comic-orange);
 }
 
 /* Decorative zigzag under buttons */
@@ -68,11 +68,11 @@
 
 /* Focus styles - dashed outline like sketched */
 .control-btn:focus-visible {
-    outline: 3px dashed var(--peanuts-blue);
+    outline: 3px dashed var(--comic-blue);
     outline-offset: 4px;
 }
 
-/* Snoopy-style happy dance on hover */
+/* Happy dance animation on hover */
 @keyframes happyDance {
 
     0%,

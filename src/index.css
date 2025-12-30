@@ -1,25 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Permanent+Marker&display=swap');
 
 :root {
-  /* Peanuts Color Palette - Warm & Nostalgic */
+  /* Color Palette - Warm & Nostalgic */
   --bg-cream: #fef9e7;
   --bg-paper: #fdf6e3;
   --bg-warm: #fff8dc;
   --text-ink: #2c2c2c;
   --text-pencil: #4a4a4a;
 
-  /* Peanuts Classic Colors */
-  --peanuts-red: #e74c3c;
-  --peanuts-yellow: #f1c40f;
-  --peanuts-blue: #5dade2;
-  --peanuts-green: #58d68d;
-  --peanuts-orange: #f39c12;
-  --peanuts-brown: #a0522d;
+  /* Classic Comic Colors */
+  --comic-red: #e74c3c;
+  --comic-yellow: #f1c40f;
+  --comic-blue: #5dade2;
+  --comic-green: #58d68d;
+  --comic-orange: #f39c12;
+  --comic-brown: #a0522d;
 
   /* Phase Colors */
-  --accent-focus: var(--peanuts-red);
-  --accent-short-break: var(--peanuts-blue);
-  --accent-long-break: var(--peanuts-green);
+  --accent-focus: var(--comic-red);
+  --accent-short-break: var(--comic-blue);
+  --accent-long-break: var(--comic-green);
 
   /* Card Styles */
   --card-bg: #ffffff;
@@ -126,7 +126,7 @@ button {
 }
 
 button:focus {
-  outline: 3px dashed var(--peanuts-yellow);
+  outline: 3px dashed var(--comic-yellow);
   outline-offset: 3px;
 }
 
