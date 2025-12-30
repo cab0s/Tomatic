@@ -6,16 +6,17 @@
 }
 
 .timer-ring {
-    filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.3));
+    filter: drop-shadow(0 0 30px var(--timer-color, rgba(255, 60, 172, 0.5)));
     transition: filter var(--transition-slow);
 }
 
 .timer-ring-bg {
-    stroke: rgba(255, 255, 255, 0.08);
+    stroke: rgba(255, 255, 255, 0.05);
 }
 
 .timer-ring-progress {
     transition: stroke-dashoffset 0.3s ease-out, stroke var(--transition-normal);
+    filter: drop-shadow(0 0 8px currentColor);
 }
 
 .timer-content {
@@ -27,31 +28,66 @@
 }
 
 .timer-time {
-    font-size: 4rem;
-    font-weight: 700;
+    font-size: 4.5rem;
+    font-weight: 800;
     font-variant-numeric: tabular-nums;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.02em;
     color: var(--text-primary);
     transition: all var(--transition-normal);
+    text-shadow:
+        0 0 20px rgba(255, 255, 255, 0.3),
+        0 0 40px var(--timer-color, rgba(255, 60, 172, 0.3));
 }
 
 .timer-time.is-running {
-    text-shadow: 0 0 40px var(--timer-color);
+    text-shadow:
+        0 0 30px rgba(255, 255, 255, 0.5),
+        0 0 60px var(--timer-color, rgba(255, 60, 172, 0.6)),
+        0 0 100px var(--timer-color, rgba(255, 60, 172, 0.4));
+    animation: neonPulse 1.5s ease-in-out infinite;
 }
 
-/* Pulse animation when running */
-@keyframes pulse {
+@keyframes neonPulse {
 
     0%,
     100% {
         opacity: 1;
+        transform: scale(1);
+        filter: brightness(1);
     }
 
     50% {
-        opacity: 0.7;
+        opacity: 0.95;
+        transform: scale(1.02);
+        filter: brightness(1.1);
     }
 }
 
-.timer-time.is-running {
-    animation: pulse 2s ease-in-out infinite;
+/* Circular glow behind timer */
+.timer-display::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            var(--timer-color, rgba(255, 60, 172, 0.2)) 0%,
+            transparent 70%);
+    filter: blur(40px);
+    z-index: -1;
+    animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
 }

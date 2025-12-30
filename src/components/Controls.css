@@ -1,7 +1,7 @@
 .controls {
     display: flex;
     align-items: center;
-    gap: var(--spacing-md);
+    gap: var(--spacing-lg);
 }
 
 .control-btn {
@@ -10,16 +10,31 @@
     justify-content: center;
     border-radius: var(--radius-full);
     background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    border: 2px solid var(--glass-border);
     color: var(--text-primary);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+}
+
+.control-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.control-btn:hover::before {
+    opacity: 1;
 }
 
 .control-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
 .control-btn:active {
@@ -27,31 +42,71 @@
 }
 
 .control-btn-primary {
-    width: 80px;
-    height: 80px;
-    background: var(--btn-color, var(--accent-focus));
-    border-color: var(--btn-color, var(--accent-focus));
-    box-shadow: 0 0 30px rgba(255, 107, 107, 0.4);
-    transition: all var(--transition-normal);
+    width: 88px;
+    height: 88px;
+    background: linear-gradient(135deg,
+            var(--btn-color, var(--neon-pink)) 0%,
+            color-mix(in srgb, var(--btn-color, var(--neon-pink)) 70%, var(--neon-purple)) 100%);
+    border: none;
+    box-shadow:
+        0 0 40px color-mix(in srgb, var(--btn-color, var(--neon-pink)) 50%, transparent),
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        inset 0 2px 0 rgba(255, 255, 255, 0.2);
+    transition: all var(--transition-bounce);
+}
+
+.control-btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, transparent 40%);
+    pointer-events: none;
 }
 
 .control-btn-primary:hover {
-    background: var(--btn-color, var(--accent-focus));
-    filter: brightness(1.1);
-    box-shadow: 0 0 40px rgba(255, 107, 107, 0.6);
+    transform: scale(1.15) translateY(-4px);
+    box-shadow:
+        0 0 60px color-mix(in srgb, var(--btn-color, var(--neon-pink)) 70%, transparent),
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.2);
+    filter: brightness(1.15);
+}
+
+.control-btn-primary:active {
+    transform: scale(0.95);
+    box-shadow:
+        0 0 30px color-mix(in srgb, var(--btn-color, var(--neon-pink)) 40%, transparent),
+        0 5px 20px rgba(0, 0, 0, 0.3);
 }
 
 .control-btn-secondary {
-    width: 56px;
-    height: 56px;
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .control-btn-secondary:hover {
-    color: var(--accent-focus);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+    box-shadow:
+        0 0 20px rgba(0, 245, 255, 0.3),
+        inset 0 0 20px rgba(0, 245, 255, 0.1);
 }
 
 /* Focus styles for accessibility */
 .control-btn:focus-visible {
-    outline: 2px solid var(--accent-focus);
-    outline-offset: 2px;
+    outline: 2px solid var(--neon-cyan);
+    outline-offset: 4px;
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+}
+
+/* Ripple effect on click */
+@keyframes ripple {
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
 }
