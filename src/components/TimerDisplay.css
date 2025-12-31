@@ -12,12 +12,33 @@
 
 .timer-ring-bg {
     stroke: var(--bg-paper);
-    stroke-width: 10;
+    stroke-width: 22;
+    filter: drop-shadow(inset 0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .timer-ring-progress {
-    transition: stroke-dashoffset 0.3s ease-out, stroke var(--transition-normal);
+    transition: stroke-dashoffset 0.3s ease-out, stroke var(--transition-normal), filter 0.3s ease;
     stroke-linecap: round;
+    filter: drop-shadow(0 0 8px var(--comic-red));
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.timer-ring-highlight {
+    transition: stroke-dashoffset 0.3s ease-out;
+    stroke-linecap: round;
+    pointer-events: none;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 6px var(--comic-red));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 12px var(--comic-red)) drop-shadow(0 0 20px var(--comic-red));
+    }
 }
 
 .timer-content {
